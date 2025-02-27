@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content%}
+
+<div class="container mt-4 d-flex flex-column align-items-center">
+    <h1 class="mb-4">Product Details</h1>
+    <div class="card" style="width: 18rem; ">
+        <div class="card-header">  
+            <h5 class="card-title">{{ product.name }}</h5>
+        </div>
+        <img src="{{ product.image.url }}" class="card-img-top" alt="Product Image">
+        <div class="card-body">
+          
+            <p class="card-text">{{ product.description }}</p>
+            <p class="card-text"><strong>Price:</strong> ₹{{ product.price }}</p>
+            <p class="card-text"><strong>Quantity:</strong> {{ product.quantity_in_stock }}</p>
+            <div class="d-flex justify-content-between">
+                <a href="{% url 'update_product' product.id %}" class="btn btn-primary">Edit</a>
+                <a href="{% url 'delete_product' product.id %}" class="btn btn-danger">Delete</a>
+
+                <form action="{% url 'add_to_cart' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="product_id" value="{{ product.id}}">
+                    <input type="hidden" name="quantity" value="1" min="1">
+                    <button type="submit" class="btn btn-dark">Add to Cart</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

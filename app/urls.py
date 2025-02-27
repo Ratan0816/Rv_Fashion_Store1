@@ -1,0 +1,32 @@
+from django.urls import path
+from django.contrib.auth.views import LoginView, LogoutView
+from .views import AddToCartView,RemoveFromCartView,CartView,CreateOrderView,OrderSummaryView,ProceedToPaymentView,PaymentSuccessView,search_view,homepage,contact_submit_page, privacypolicypage, termspage, faqpage, aboutpage, contactpage, CustomerCreateView,CustomerList,CustomerDetailView,CustomerUpdateView,CustomerDeleteView,ProductList,ProductCreateView,ProductDetailView,ProductUpdateView,ProductDeleteView#,OrderCreateView,OrderList,OrderDetailView,OrderUpdateView,OrderDeleteView,OrderItemsList,OrderItemsCreateView,OrderItemsDetailView,OrderItemsUpdateView,OrderItemsDeleteView,CartCreateView,CartList,CartDetailView,CartUpdateView, CartDeleteView,PaymentCreateView,PaymentList,PaymentdetailView,PaymentUpdateView,PaymentDeleteView,CategoryCreateView,CategoryList,CategoryDetailView,CategoryUpdateView,CategoryDeleteView         
+urlpatterns=[
+        path('home/', homepage, name='home'),
+        path('about/', aboutpage, name='about'),
+        path('contact/', contactpage, name='contact'),
+        path('contact_submit/', contact_submit_page, name="contact_submit"),
+        path('privacy_policy/', privacypolicypage, name='privacy_policy'),
+        path('terms/', termspage, name='terms'),
+        path('faq/', faqpage, name='faq'),
+        path('login/', LoginView.as_view(template_name='login.html'), name='login'),
+        path('search/',search_view,name='search'),
+        path('logout/', LogoutView.as_view(next_page='login'), name="logout"),
+        path('create_customer/', CustomerCreateView, name="create_customer"),
+        path('customer_detail_view/<int:pk>/',CustomerDetailView.as_view(),name="customer_detail_view"),
+        path('customer_list/', CustomerList.as_view(), name="customer_list"),
+        path('update_customer/<int:pk>/',CustomerUpdateView.as_view(),name="update_view"),
+        path('delete_customer/<int:pk>/',CustomerDeleteView.as_view(),name="delete_view"),
+        path('products_list/',ProductList.as_view(),name='products_list'),
+        path('create_product/',ProductCreateView.as_view(),name='create_product'),
+        path('product_detail/<int:id>/',ProductDetailView.as_view(),name='product_detail_view'),
+        path('update_product/<int:pk>/',ProductUpdateView.as_view(),name='update_product'),
+        path('delete_product/<int:pk>/',ProductDeleteView.as_view(),name='delete_product'),
+        path('add_to_cart/',AddToCartView.as_view(), name="add_to_cart"),
+        path('remove_from_cart/<int:cart_id>/', RemoveFromCartView.as_view(), name="remove_from_cart"),
+        path('view_cart/', CartView.as_view(), name="view_cart"),
+        path('create_order/', CreateOrderView.as_view(), name="create_order"),
+        path('order_summary/<int:order_id>/', OrderSummaryView.as_view(), name="order_summary"),
+        path('order/<int:order_id>/payment/',ProceedToPaymentView.as_view(),name='proceed_to_payment'),
+        path('order/<int:order_id>/payment-success/',PaymentSuccessView.as_view(),name="payment_success"),
+]

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4 d-flex flex-column align-items-center">
+    <h5 class="card-title mb-0">Orders Details</h5>
+    <div class="card" style="width: 20rem;">
+        <div class="card-body">
+            <p><strong>Date:</strong> {{ order.order_date }}</p>
+            <p><strong>Amount:</strong> {{ order.total_amount }}</p>
+        </div>
+        <div class="card-footer d-flex justify-content-between">
+            <a href="{% url 'update_view' order.id %}" class="btn btn-primary btn-sm">Edit</a>
+            <a href="{% url 'delete_view' order.id %}" class="btn btn-danger btn-sm">Delete</a>
+            <a href="#" class="btn btn-dark"></a>
+        </div>
+    </div>
+</div>
+{% endblock %}

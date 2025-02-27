@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+        <h1>Orders List</h1>
+        <p>
+            <table class="table table-striped table-bordered table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Date</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in products %}
+                    <tr>
+                        <td><a href="{% url 'order_detail_view' order.id %}">{{ order.order_date }}</a></td>
+                        <td>{{ order.total_amount }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </p>
+{%endblock%}

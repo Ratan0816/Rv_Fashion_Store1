@@ -1,0 +1,8 @@
+{% extends 'base.html'%}
+{% block content %}
+        <p>Are you sure you want to delete {{ customer.f_name1 }} ?</p>
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit">Yes, Delete.!</button>
+        </form>
+{% endblock %}

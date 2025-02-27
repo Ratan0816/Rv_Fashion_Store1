@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ customer_form.f_name1.label_tag }} {{ customer_form.f_name1 }}
+            </div>
+            <div class="form-group">
+                {{ customer_form.l_name1.label_tag }} {{ customer_form.l_name1 }}
+            </div>
+            <div class="form-group">
+                {{ customer_form.username.label_tag }} {{ customer_form.username }}
+            </div>
+            <div class="form-group">
+                {{ customer_form.email1.label_tag }} {{ customer_form.email1 }} 
+            </div>
+            <div class="form-group">
+                {{ customer_form.phone1.label_tag }} {{ customer_form.phone1 }}
+            </div>
+            <div class="form-group">
+                {{ customer_form.address1.label_tag }} {{ customer_form.address1 }}
+            </div>
+            <div class="form-group">
+                {{ customer_form.password1.label_tag }} {{ customer_form.password1 }}
+            </div>
+            <div class="form-group">
+                {{ customer_form.password2.label_tag }} {{ customer_form.password2 }}
+            </div>
+            <button type="submit">Add a Customer</button>
+        </form>
+{% endblock %}

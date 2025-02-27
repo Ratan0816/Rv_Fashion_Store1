@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container mt-5 text-center">
+        <h2>Thank You for Contacting Us!</h2>
+        <p>We have received your message and our team will get back to you as soon as possible. In the meantime, feel free to explore our website for more information about our pets and services.</p>
+        
+        <a href="{% url 'home' %}" class="btn btn-primary">Return to Home</a>
+        <a href="{% url 'contact' %}" class="btn btn-secondary">Contact Us Again</a>
+    </div>
+{% endblock %}

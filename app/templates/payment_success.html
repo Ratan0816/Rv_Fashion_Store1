@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Payment Successful</h2>
+    <p>Order ID: {{ order.id }}</p>
+    <p>Total Amount: {{ order.total_amount }}</p>
+    <p>Thank you for your purchase!</p>
+    <a href="{% url 'home' %}" class="btn btn-primary">Go to Home</a>
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4 d-flex flex-column align-items-center">
+    <h5 class="card-title mb-0">Customer Details</h5>
+    <div class="card" style="width: 20rem;">
+        <div class="card-body">
+            <p><strong>First Name:</strong> {{ customer.f_name1 }}</p>
+            <p><strong>Last Name:</strong> {{ customer.l_name1 }}</p>
+            <p><strong>Email:</strong> {{ customer.email1 }}</p>
+            <p><strong>Phone no.:</strong> ${{ customer.phone1 }}</p>
+            <p><strong>Address:</strong> {{ customer.address1}}</p>
+        </div>
+        <div class="card-footer d-flex justify-content-between">
+            <a href="{% url 'update_view' customer.id %}" class="btn btn-primary btn-sm">Edit</a>
+            <a href="{% url 'delete_view' customer.id %}" class="btn btn-danger btn-sm">Delete</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

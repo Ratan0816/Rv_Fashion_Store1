@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+    {% if query %}
+        <p>
+            The searched data : {{ query }}
+        </p>
+        {% endif %}
+        <p>
+            The product information :
+            <br>
+            {% for product in product_manager %}
+            Product Name : {{ product.name }}
+            Product Category : {{ product.category}}
+            Product Price : {{ product.price}}
+            Product Quantity : {{ product.quantity_in_stock}}
+            Product Description : {{ product.description_text}}
+            {% endfor %}
+        </p>
+    {% endblock %}

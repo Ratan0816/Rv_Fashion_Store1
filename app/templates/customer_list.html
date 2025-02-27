@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+        <h1>Customers List</h1>
+        <p>
+            <table class="table table-striped table-bordered table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>UserName</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Phone no.</th>
+                        <th>Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for customer in customers %}
+                    <tr>
+                        <td><a href="{% url 'customer_detail_view' customer.id %}">{{ customer.username }}</a></td>
+                        <td>{{ customer.f_name1 }}</a></td>
+                        <td>{{ customer.l_name1 }}</td>
+                        <td>{{ customer.email1 }}</td>
+                        <td>{{ customer.phone1 }}</td>
+                        <td>{{ customer.address1 }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </p>
+{%endblock%}
